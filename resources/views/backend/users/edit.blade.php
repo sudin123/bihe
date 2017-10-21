@@ -16,7 +16,7 @@
         </div>
         <!-- BEGIN PAGE BREADCRUMBS -->
         <div class="breadcrumb-wrapper">
-          <a href="{{route('user.password',$user->id)}}" class="btn btn-success">Change Password</a>
+          {{-- <a href="{{route('user.password',$user->id)}}" class="btn btn-success">Change Password</a> --}}
         </div>
         <!-- END PAGE TITLE -->
     </div>
@@ -38,7 +38,7 @@
                     </div>                   
                 </div>
                 <div class="portlet-body">
-                    {!! Form::open(array('route' => ['assign.roles',$user->id],  'method' => 'POST', 'role' => 'form',  'required' => 'required')) !!}
+                    {!! Form::open(array('route' => ['assign.roles',$user->id], 'role' => 'form',  'required' => 'required')) !!}
                         @include('backend.users.partials.roles')
                     {!! Form::close()!!}
                 </div>
@@ -69,19 +69,9 @@
                         @endif
                     </div>
 
-                    <div class="form-group {{$errors->has('full_name') ? 'has-error':''}}">
-                    {!! Form::label('full_name', 'Full Name') !!}
-                    {!! Form::text('full_name',$user->full_name, array('class' => 'form-control', 'placeholder' => 'Enter Full Name')) !!}
-                     @if ($errors->has('full_name'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('full_name') }}</strong>
-                        </span>
-                    @endif
-                    </div>
-
                     <div class="form-group {{$errors->has('username') ? 'has-error':''}}">
-                    {!! Form::label('username', 'Username') !!}
-                    {!! Form::text('username',$user->username, array('class' => 'form-control', 'placeholder' => 'Enter Username')) !!}
+                    {!! Form::label('name', 'Name') !!}
+                    {!! Form::text('name',$user->name, array('class' => 'form-control', 'placeholder' => 'Enter Username')) !!}
                      @if ($errors->has('username'))
                         <span class="help-block">
                             <strong>{{ $errors->first('username') }}</strong>

@@ -135,8 +135,9 @@
 
                                     <td> 
                                     <div class="btn-group btn-group-sm btn-group-solid">
+                                        @if(App\User::hasRole(Auth::user()->id, 'admin'))
                                          <a href="{{route('users.edit',$user->id)}}" class='btn blue btn-outline'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-
+                                         @endif
                                          {!! Form::open(array('route' => ['users.destroy',$user->id],  'method' => 'DELETE', 'role' => 'form',  'required' => 'required','class'=>'delete-form')) !!}
                                         {!! Form::button('<i class="fa fa-trash"></i>', array('class' => 'btn red btn-outline delete-btn','type' => 'submit')) !!}
                                          {!! Form::close()!!}

@@ -1,18 +1,18 @@
 <div class="icheck-list">
     <label>
-    {!! Form::checkbox('admin',1,in_array('admin', $roles) ? 'checked' : '',['class'=>'icheck'] ) !!} Administrator
+    {!! Form::checkbox('roles[]',1,in_array('admin', $roles) ? 'checked' : '',['class'=>'icheck'] ) !!} Administrator
     </label>
 
     <label>
-    {!! Form::checkbox('editor',2,in_array('editor', $roles) ? 'checked' : '',['class'=>'icheck']) !!} Editor
+    {!! Form::checkbox('roles[]',2,in_array('editor', $roles) ? 'checked' : '',['class'=>'icheck']) !!} Editor
     </label>
 
     <label>
-    {!! Form::checkbox('admanager',3,in_array('admanager', $roles) ? 'checked' : '',['class'=>'icheck']) !!} AdManager
+    {!! Form::checkbox('roles[]',3,in_array('applicant', $roles) ? 'checked' : '',['class'=>'icheck']) !!} Applicant
     </label>
 
     <label>
-    {!! Form::checkbox('developer',4,in_array('developer', $roles) ? 'checked' : '',['class'=>'icheck']) !!} Developer
+    {!! Form::checkbox('roles[]',4,in_array('superadmin', $roles) ? 'checked' : '',['class'=>'icheck']) !!} Super Admin
     </label>
 
     <div class="form-group">

@@ -80,7 +80,18 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = $this->user->find($id);
+        $roles = $user->roles;
+        $rolesArray = [];
+        foreach ($roles as $key => $roles) {
+            $rolesArray[] = $roles->role;
+        }
+        $data = [
+            'user' => $user,
+            'roles' => $rolesArray
+        ];
+        return view('backend.users.edit')->with($data);
+
     }
 
     /**
@@ -92,7 +103,9 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $user = $this->user->find($id);
+       $user->update($request->all());
+       return redirect()->back();
     }
 
     /**
@@ -107,4 +120,11 @@ class UserController extends Controller
         $user->delete();
         return redirect()->back();
     }
+
+    public function assignRoles(Request $request, $id){
+        $user = $this->user->find($id);
+        $user->roles()->sync($request->roles);
+        return redirect()->back();
+    }
+
 }

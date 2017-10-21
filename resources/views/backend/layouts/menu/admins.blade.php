@@ -3,8 +3,8 @@
     <div class="container">
         <div class="hor-menu ">
             <ul class="nav navbar-nav">
-                <li><a href="#"><i class="icon-home"></i> Dashboard</a></li>
-                <li><a href="#"><i class="fa fa-list"></i> Menus</a></li>
+                <li><a href="{{route('backend')}}"><i class="icon-home"></i> Dashboard</a></li>
+                <li><a href="{{route('users.index')}}"><i class="fa fa-user"></i> Users</a></li>
                 <li class="menu-dropdown mega-menu-dropdown">
                     <a href="javascript:void(0);"><i class="fa fa-sticky-note-o"></i> Posts </a><span class="arrow"></span>
                     <ul class="dropdown-menu menu-dropdown classic-menu-dropdown ">

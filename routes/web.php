@@ -17,7 +17,8 @@ Route::get('/', function () {
 
 Route::group(['namespace'=>'Backend','prefix'=>'backend', 'middleware'=>'auth'], function () {
     $this->get('/', 'DashboardController@index')->name('backend');
-    $this->resource('users','UserController');
+    $this->resource('users', 'UserController');
+    $this->post('/roles/{user_id}', 'UserController@assignRoles')->name('assign.roles');
 });
 
 

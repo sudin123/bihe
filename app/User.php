@@ -31,4 +31,18 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
+
+    public static function hasRole($id, $role)
+    {
+        $roles = self::find($id)->roles;
+        $userRoles = [];
+        foreach ($roles as $key => $role) {
+            $userRoles[] = $role; 
+        }
+        if(in_array($role, $userRoles))
+        {
+            return true;
+        }
+        return false;
+    }
 }
