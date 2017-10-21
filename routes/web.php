@@ -17,12 +17,10 @@ Route::get('/', function () {
 
 Route::group(['namespace'=>'Backend','prefix'=>'backend', 'middleware'=>'auth'], function () {
     $this->get('/', 'DashboardController@index')->name('backend');
+    $this->resource('users','UserController');
 });
 
 
 
 
 Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
-

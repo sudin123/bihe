@@ -4,10 +4,19 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
-
+use Auth;
+use App\Role;
+use App\User;
+use App\Http\Requests\UserRequest;
 class UserController extends Controller
 {
+    protected $user;
+    protected $role;
+    public function __construct(User $user, Role $role)
+    {
+        $this->user = $user;
+        $this->role = $role;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +24,14 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $roles = $this->role->all();
+        $users = $this->user->paginate(10);
+        $data = [
+            'users' => $users,
+            'roles' => $roles,
+            'user'  => Auth::user()
+        ];
+        return view('backend.users.index')->with($data);
     }
 
     /**
@@ -34,9 +50,15 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        if($request->password == $request->c_password){
+            $this->user->create($request->all());
+            return redirect()->back();
+        }else{
+            \Session::flash('message','Passwords do not match each other');
+            return redirect()->back();
+        }
     }
 
     /**
@@ -81,6 +103,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = $this->user->find($id);
+        $user->delete();
+        return redirect()->back();
     }
 }
