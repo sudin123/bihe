@@ -12,14 +12,14 @@
                             <h3 class="font-green-sharp">
                                 <span data-counter="counterup" data-value="10">12</span>
                             </h3>
-                            <small>Posts</small>
+                            <small>Applicants</small>
                         </div>
                         <div class="icon">
                             <i class="fa fa-users"></i>
                         </div>
                     </div>
                     <div class="text-center">
-                        <a href="#" class="btn green btn-outline "><i class="fa fa-plus"></i> New Post</a>
+                        <a href="#" class="btn green btn-outline "><i class="fa fa-user"></i>Show All</a>
                     </div>
                 </div>
             </div>

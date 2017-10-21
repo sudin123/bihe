@@ -68,7 +68,7 @@
                                     <li class="dropdown dropdown-user">
                                         <a href="javascript:" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                             <img alt="" class="img-circle" src="{{ asset("/admin/assets/layouts/layout/img/avatar.png") }}">
-                                            <span class="username username-hide-mobile">Welcome {{ $user->name }} !!</span>
+                                            <span class="username username-hide-mobile">Welcome {{ Auth::user()->name }} !!</span>
                                         </a>
                                     </li>
                                     {{-- <li class="dropdown"><a class="dropdown-toggle" href="{{ route('users.index') }}"><i class="icon-users"></i></a></li> --}}
