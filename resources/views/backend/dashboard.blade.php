@@ -28,7 +28,7 @@
                     <div class="display">
                         <div class="number">
                             <h3 class="font-red">
-                                <span data-counter="counterup" data-value="10">13</span>
+                                <span data-counter="counterup" data-value="10">{{$categoryCount}}</span>
                             </h3>
                             <small>Categories</small>
                         </div>
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <a href="#" class="btn red-mint btn-outline"><i class="fa fa-plus"></i> New Category</a>
+                        <a href="{{route('categories.index')}}" class="btn red-mint btn-outline"><i class="fa fa-plus"></i> New Category</a>
                     </div>
                 </div>
             </div>
